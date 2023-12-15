@@ -47,7 +47,7 @@ python manage.py runserver
 >
 > If you want to change the server’s IP, pass it along with the port. For example, to listen on all available public IPs (which is useful if you are running Vagrant or want to show off your work on other computers on the network), use:
 > ```console
->python manage.py runserver 8080
+>python manage.py runserver 0.0.0.0:8080
 >```
 
 <br>
