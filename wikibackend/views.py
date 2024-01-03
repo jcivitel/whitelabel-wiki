@@ -1,14 +1,35 @@
-import os
-from django.shortcuts import render
-from .functions import process_markdown_file
-from .models import Customer
+import markdown
+from django.http import HttpResponse
+from django.template import loader
+
+from .models import Customer, WikiPage, WikiPage2Customer
 
 
-def wiki_page(request, customer_id):
-    customer = Customer.objects.get(pk=customer_id)
-    context = {"customer": customer}
+def dashboard(request, customer_id):
+    template = loader.get_template(
+        "base.html"
+    )
 
-    markdown_path = os.path.join("wikibackend", "markdown_files", "example.md")
-    rendered_content = process_markdown_file(markdown_path, context)
+    template_opts = dict()
 
-    return render(request, "wiki_page.html", {"content": rendered_content})
+    template_opts["blogname"] = f"Wiki von {Customer.objects.get(pk=customer_id).name}"
+
+    return HttpResponse(template.render(template_opts, request))
+
+
+def wiki_page(request, customer_id, url):
+    template = loader.get_template(
+        "wiki_page.html"
+    )
+
+    template_opts = dict()
+
+    template_opts["blogname"] = WikiPage.objects.get(url=url).name
+
+    template_opts["pages"] = WikiPage2Customer.objects.filter(customer=customer_id)
+
+    md = markdown.Markdown(extensions=["fenced_code", "codehilite"])
+    markdown_content = WikiPage.objects.get(url=url).content
+    template_opts["content"] = md.convert(markdown_content)
+
+    return HttpResponse(template.render(template_opts, request))
