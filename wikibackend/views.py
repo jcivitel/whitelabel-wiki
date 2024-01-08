@@ -1,5 +1,7 @@
 import markdown
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.template import loader
 
 from .models import Customer, WikiPage, WikiPage2Customer
@@ -39,3 +41,13 @@ def wiki_page(request, customer_id, url):
     template_opts["content"] = md.convert(markdown_content)
 
     return HttpResponse(template.render(template_opts, request))
+
+
+@login_required
+def upload_image(request, customer_id):
+    customer = Customer.objects.get(pk=customer_id)
+
+    if request.method == "POST":
+        return redirect(f"/wiki/{customer.id}")
+    else:
+        return redirect(f"/wiki/{customer.id}")
