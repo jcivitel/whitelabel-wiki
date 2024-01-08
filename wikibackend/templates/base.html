@@ -3,18 +3,50 @@
 <!doctype html>
 <html lang="en-US">
 <head>
+    <title>
+        Wiki von {{ blogname }}
+    </title>
     <meta charset="utf-8"/>
     <script src="{% static 'js/jquery.min.js' %}" defer></script>
     <script src="{% static 'js/bootstrap.bundle.min.js' %}" defer></script>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        :root {
+            --bs-primary: '#{{ customer.primary_color.lower }}';
+            --bs-primary-rgb: {{ customer.get_primary_color }};
+            --bs-secondary: '#{{ customer.secondary_color.lower }}';
+            --bs-secondary-rgb: {{ customer.get_secondary_color }};
+        }
+    </style>
     {% block customcss %}
     {% endblock %}
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
-        {% block customnavbar %}
-        {% endblock %}
+        <a class="navbar-brand text-secondary" href="#">Wiki von {{ blogname }}</a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-secondary" href="{% url "dashboard" customer.id %}">
+                        Dashboard
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-secondary" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Wiki-Beiträge
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% for entry in pages %}
+                            <li><a class="dropdown-item" href="{{ entry.WikiPage.url }}">{{ entry.WikiPage.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 <div class="ms-3 me-3">

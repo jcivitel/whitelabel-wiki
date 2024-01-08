@@ -7,12 +7,16 @@ from .models import Customer, WikiPage, WikiPage2Customer
 
 def dashboard(request, customer_id):
     template = loader.get_template(
-        "base.html"
+        "dashboard.html"
     )
 
     template_opts = dict()
 
-    template_opts["blogname"] = f"Wiki von {Customer.objects.get(pk=customer_id).name}"
+    template_opts["customer"] = Customer.objects.get(pk=customer_id)
+
+    template_opts["blogname"] = f"{Customer.objects.get(pk=customer_id).name}"
+
+    template_opts["pages"] = WikiPage2Customer.objects.filter(customer=customer_id)
 
     return HttpResponse(template.render(template_opts, request))
 
@@ -24,7 +28,9 @@ def wiki_page(request, customer_id, url):
 
     template_opts = dict()
 
-    template_opts["blogname"] = WikiPage.objects.get(url=url).name
+    template_opts["customer"] = Customer.objects.get(pk=customer_id)
+
+    template_opts["blogname"] = f"{Customer.objects.get(pk=customer_id).name}"
 
     template_opts["pages"] = WikiPage2Customer.objects.filter(customer=customer_id)
 
