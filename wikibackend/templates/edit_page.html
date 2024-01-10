@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block customcss %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block customjs %}
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="card shadow p-3 mb-5 bg-body rounded col-md-6">
+            <div class="card-header">
+                Editor
+            </div>
+            <div class="card-body ">
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="editor">
+                        {{ edit_form.content }}
+                    </div>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="card shadow p-3 mb-5 bg-body rounded col-md-6">
+            <div class="card-header">
+                Preview
+            </div>
+            <div class="card-body">
+                <div id="markdown_preview">
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
