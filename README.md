@@ -8,13 +8,6 @@ The general goal of this project is to provide a wiki in which several service p
 
 The integration of corporate logos is also planned.
 
-## TODOs
-
-
-- [ ] [#1](https://github.com/jcivitel/whitelable-wiki/issues/1)
-- [ ] [#2](https://github.com/jcivitel/whitelable-wiki/issues/2)
-
-<br>
 
 ## How to install the project?
 1. Begin by cloning the repository to a designated local directory on your machine.
