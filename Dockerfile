@@ -13,4 +13,4 @@ COPY env_template /opt/whitelable-wiki/env_template
 COPY entry.sh /opt/whitelable-wiki/entry.sh
 
 EXPOSE 8000
-CMD ["entry.sh"]
+CMD ["bash", "entry.sh"]
