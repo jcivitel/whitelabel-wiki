@@ -15,9 +15,9 @@ sed -i -e "s/{{SECRET_KEY}}/${SECRET_KEY}/g" \
 	
 python -m venv venv
 
-. venv/bin/activate
-
 python pip install --upgrade pip
+
+. venv/bin/activate
 
 pip install -r requirements.txt
 	
