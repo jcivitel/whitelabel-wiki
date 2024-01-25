@@ -43,8 +43,49 @@ python manage.py runserver
 >python manage.py runserver 0.0.0.0:8080
 >```
 
-<br>
 
+## Installation by compose-yaml
+```yaml
+version: "3.3"
+services:
+  wiki:
+    container_name: wiki
+    image: jcivitell/whitelable_wiki:latest
+    ports:
+      - "80:8000/tcp"
+    environment:
+      SECRET_KEY: '${SECRET_KEY}'
+      DEBUG: '${DEBUG}'
+      LANGUAGE_CODE: '${LANGUAGE_CODE}'
+      TIME_ZONE: '${TIME_ZONE}'
+      MAIN_DATABASE_ENGINE: '${MAIN_DATABASE_ENGINE}'
+      MAIN_DATABASE_NAME: '${MAIN_DATABASE_NAME}'
+      MAIN_DATABASE_USER: '${MAIN_DATABASE_USER}'
+      MAIN_DATABASE_PASSWD: '${MAIN_DATABASE_PASSWD}'
+      MAIN_DATABASE_HOST: '${MAIN_DATABASE_HOST}'
+      MAIN_DATABASE_PORT: '${MAIN_DATABASE_PORT}'
+    networks:
+      - wiki
+
+  mariadb:
+    container_name: db
+    image: mariadb:latest
+    environment:
+      MARIADB_ROOT_PASSWORD: '${MARIADB_ROOT_PASSWORD}'
+      MYSQL_DATABASE: '${MAIN_DATABASE_NAME}'
+      MYSQL_USER: '${MAIN_DATABASE_USER}'
+      MYSQL_PASSWORD: '${MAIN_DATABASE_PASSWD}'
+    volumes:
+      - 'data:/var/lib/mysql'
+    networks:
+      - wiki
+
+networks:
+  wiki:
+
+volumes:
+  data:
+```
 ---
 
 ## Contributors
