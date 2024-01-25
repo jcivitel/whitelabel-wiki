@@ -13,4 +13,12 @@ sed -i -e "s/{{SECRET_KEY}}/${SECRET_KEY}/g" \
 	-e "s/{{MAIN_DATABASE_HOST}}/${MAIN_DATABASE_HOST}/g" \
 	-e "s/{{MAIN_DATABASE_PORT}}/${MAIN_DATABASE_PORT}/g" .env
 	
+python -m venv venv
+
+. venv/bin/activate
+
+python pip install --upgrade pip
+
+pip install -r requirements.txt
+	
 python manage.py runserver --noreload 0.0.0.0:8000
