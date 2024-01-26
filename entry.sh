@@ -13,9 +13,9 @@ sed -i -e "s|{{MAIN_DATABASE_PASSWD}}|${MAIN_DATABASE_PASSWD}|g" ".env"
 sed -i -e "s|{{MAIN_DATABASE_HOST}}|${MAIN_DATABASE_HOST}|g" ".env"
 sed -i -e "s|{{MAIN_DATABASE_PORT}}|${MAIN_DATABASE_PORT}|g" ".env"
 
-python -m venv venv
+cat .env
 
-python pip install --upgrade pip
+python -m venv venv
 
 . venv/bin/activate
 
