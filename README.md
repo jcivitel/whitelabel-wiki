@@ -24,8 +24,11 @@ python -m venv venv
 . venv/bin/activate
 pip install -r reqirements.txt
 ```
+4. You need to set your own environmental variables in the `.env` file, which should be in the project root folder.
+> [!TIP]
+> A reference can you find [here](env_template).
 
-4. To run the server, execute the following command:
+5. To run the server, execute the following command:
 ```
 python manage.py runserver
 ```
