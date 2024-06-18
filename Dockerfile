@@ -1,5 +1,7 @@
 FROM python:3.12-alpine AS builder
 
+RUN apk add --no-cache libgcc mariadb-connector-c pkgconf mariadb-dev postgresql-dev linux-headers
+
 WORKDIR /opt/whitelable-wiki
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
