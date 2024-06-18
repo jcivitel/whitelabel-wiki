@@ -11,8 +11,6 @@ COPY manage.py /opt/whitelable-wiki/
 COPY whitelable_wiki /opt/whitelable-wiki/whitelable_wiki/
 COPY wikibackend /opt/whitelable-wiki/wikibackend/
 
-COPY entry.sh /opt/whitelable-wiki/entry.sh
-
 FROM builder AS install
 WORKDIR /opt/whitelable-wiki
 ENV VIRTUAL_ENV=/opt/whitelable-wiki/venv
@@ -26,4 +24,4 @@ RUN pip install --no-cache-dir -r /opt/whitelable-wiki/requirements.txt
 FROM install as run
 
 EXPOSE 8000
-CMD ["bash", "entry.sh"]
+CMD ["python", "manage.py", "runserver", "--noreload", "0.0.0.0:8000"]
