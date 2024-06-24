@@ -10,6 +10,7 @@ workflows:
               only: /^v.*/
             branches:
               ignore: /dev*/
+              ignore: /dependabot*/
 jobs:
   build:
     working_directory: ~/app
