@@ -1,9 +1,9 @@
 services:
   whitelabel-wiki:
-    image: jcivitell/whitelable_wiki
+    image: jcivitell/whitelabel_wiki
     build:
       context: .
       dockerfile: ./Dockerfile
       tags:
-      - "jcivitell/whitelable_wiki:${CIRCLE_BRANCH:-nobranch}"
-      - "jcivitell/whitelable_wiki:${CIRCLE_TAG:-notag}"
+      - "jcivitell/whitelabel_wiki:${CIRCLE_BRANCH:-nobranch}"
+      - "jcivitell/whitelabel_wiki:${CIRCLE_TAG:-notag}"

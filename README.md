@@ -1,7 +1,7 @@
 [![](https://img.shields.io/maintenance/yes/2024)](https://github.com/jcivitel/)
-[![GitHub issues](https://img.shields.io/github/issues/jcivitel/whitelable-wiki)](https://github.com/jcivitel/whitelable-wiki)
-[![GitHub Repo stars](https://img.shields.io/github/stars/jcivitel/whitelable-wiki)](https://github.com/jcivitel/whitelable-wiki)
-[![GitHub License](https://img.shields.io/github/license/jcivitel/whitelable-wiki)](https://github.com/jcivitel/whitelable-wiki)
+[![GitHub issues](https://img.shields.io/github/issues/jcivitel/whitelabel-wiki)](https://github.com/jcivitel/whitelabel-wiki)
+[![GitHub Repo stars](https://img.shields.io/github/stars/jcivitel/whitelabel-wiki)](https://github.com/jcivitel/whitelabel-wiki)
+[![GitHub License](https://img.shields.io/github/license/jcivitel/whitelabel-wiki)](https://github.com/jcivitel/whitelabel-wiki)
 
 # What is the goal of the project?
 The general goal of this project is to provide a wiki in which several service providers can be mapped without having to rewrite each topic for each one.
@@ -12,7 +12,7 @@ The integration of corporate logos is also planned.
 ## How to install the project?
 1. Begin by cloning the repository to a designated local directory on your machine.
 ```console
-git clone https://github.com/jcivitel/whitelable-wiki.git
+git clone https://github.com/jcivitel/whitelabel-wiki.git
 ```
 2. Launch a Command Prompt (CMD) and navigate to the specified directory. Once in the directory, execute the following command:
 ```python
@@ -53,7 +53,7 @@ version: "3.3"
 services:
   wiki:
     container_name: wiki
-    image: jcivitell/whitelable_wiki:latest
+    image: jcivitell/whitelabel_wiki:latest
     ports:
       - "80:8000/tcp"
     environment:

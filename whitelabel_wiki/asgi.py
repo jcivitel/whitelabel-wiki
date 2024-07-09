@@ -1,5 +1,5 @@
 """
-ASGI config for whitelable_wiki project.
+ASGI config for whitelabel_wiki project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "whitelable_wiki.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "whitelabel_wiki.settings")
 
 application = get_asgi_application()

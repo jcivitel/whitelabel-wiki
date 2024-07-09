@@ -1,5 +1,5 @@
 """
-WSGI config for whitelable_wiki project.
+WSGI config for whitelabel_wiki project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "whitelable_wiki.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "whitelabel_wiki.settings")
 
 application = get_wsgi_application()
