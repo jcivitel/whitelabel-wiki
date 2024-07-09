@@ -26,7 +26,7 @@ pip install -r reqirements.txt
 ```
 4. You need to set your own environmental variables.
 > [!TIP]
-> 
+> create a .env file or use the Docker environment
 
 5. To run the server, execute the following command:
 ```
