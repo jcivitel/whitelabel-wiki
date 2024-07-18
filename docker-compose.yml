@@ -5,5 +5,4 @@ services:
       context: .
       dockerfile: ./Dockerfile
       tags:
-      - "jcivitell/whitelabel_wiki:${CIRCLE_BRANCH:-nobranch}"
       - "jcivitell/whitelabel_wiki:${CIRCLE_TAG:-notag}"
