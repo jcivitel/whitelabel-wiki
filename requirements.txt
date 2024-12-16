@@ -4,7 +4,7 @@ click==8.1.7
 colorama==0.4.6
 Django==5.1.4
 Markdown==3.7
-markdown2==2.5.1
+markdown2==2.5.2
 mypy-extensions==1.0.0
 mysqlclient==2.2.6
 packaging==24.2
