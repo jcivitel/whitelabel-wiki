@@ -1,16 +1,10 @@
 name: Dependabot auto-merge
-on: 
+
+on:
   pull_request:
-    types:
-      - opened
-      - edited
-      - labeled
-      - unlabeled
+    types: [opened, edited, labeled, unlabeled]
   issue_comment:
-    types:
-      - created
-      - edited
-      - deleted
+    types: [created, edited, deleted]
 
 permissions:
   contents: write
@@ -26,8 +20,18 @@ jobs:
         uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
+      
+      # Warte auf laufende Checks
+      - name: Wait for status checks
+        run: |
+          echo "Waiting for status checks to complete..."
+          gh pr ready "$PR_URL" --undo || true
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
       - name: Enable auto-merge for Dependabot PRs
         run: gh pr merge --auto --merge "$PR_URL"
         env:
-          PR_URL: ${{github.event.pull_request.html_url}}
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
