@@ -15,4 +15,4 @@ python-decouple==3.8
 sqlparse==0.5.4
 tomli==2.3.0
 typing_extensions==4.15.0
-tzdata==2025.2
+tzdata==2025.3
