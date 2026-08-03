@@ -1,4 +1,4 @@
-[![](https://img.shields.io/maintenance/yes/2024)](https://github.com/jcivitel/)
+[![](https://img.shields.io/maintenance/yes/2026)](https://github.com/jcivitel/)
 [![GitHub issues](https://img.shields.io/github/issues/jcivitel/whitelabel-wiki)](https://github.com/jcivitel/whitelabel-wiki)
 [![GitHub Repo stars](https://img.shields.io/github/stars/jcivitel/whitelabel-wiki)](https://github.com/jcivitel/whitelabel-wiki)
 [![GitHub License](https://img.shields.io/github/license/jcivitel/whitelabel-wiki)](https://github.com/jcivitel/whitelabel-wiki)
