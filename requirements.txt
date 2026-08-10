@@ -7,7 +7,7 @@ Markdown==3.10.3
 markdown2==2.5.5
 mypy-extensions==1.1.0
 mysqlclient==2.2.8
-packaging==26.2
+packaging==26.3
 pathspec==1.1.1
 platformdirs==4.11.0
 Pygments==2.20.0
