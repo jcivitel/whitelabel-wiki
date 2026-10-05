@@ -3,7 +3,7 @@ black==26.5.1
 click==8.5.0
 colorama==0.4.6
 Django==6.1.1
-Markdown==3.10.3
+Markdown==3.11
 markdown2==2.5.5
 mypy-extensions==1.1.0
 mysqlclient==2.3.0
